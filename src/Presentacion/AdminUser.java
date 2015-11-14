@@ -5,6 +5,8 @@
  */
 package Presentacion;
 
+import java.awt.Component;
+
 /**
  *
  * @author jmcito
@@ -119,7 +121,7 @@ public class AdminUser extends javax.swing.JFrame {
         desktopPane.add(Controllbl);
         Controllbl.setBounds(140, 230, 150, 17);
 
-        medicosLbl.setText("Medicos ");
+        medicosLbl.setText("Agregar Medicos");
         desktopPane.add(medicosLbl);
         medicosLbl.setBounds(450, 160, 70, 17);
 
@@ -136,7 +138,7 @@ public class AdminUser extends javax.swing.JFrame {
         desktopPane.add(AddMedico);
         AddMedico.setBounds(360, 220, 72, 60);
 
-        jLabel1.setText("Agregar Medicos");
+        jLabel1.setText("Lista de Medicos");
         desktopPane.add(jLabel1);
         jLabel1.setBounds(450, 240, 130, 17);
 

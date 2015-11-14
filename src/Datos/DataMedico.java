@@ -7,6 +7,8 @@ package Datos;
 
 import Encapsulamiento.Medico;
 import java.sql.*;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -37,6 +39,30 @@ public class DataMedico {
             
         }
         return result;
+    }
+    
+    public ArrayList<Medico> ListMedico(){
+        ArrayList listaMedico=new ArrayList();
+        Medico medico;
+        try {
+            Connection cn=conn.dbConnect();
+            PreparedStatement ps=cn.prepareStatement("Select Id,Nombre,Especialidad,Email,Telefono,Descripcion from CIJDATABASE.Medicos");
+            ResultSet rs=ps.executeQuery();
+            while(rs.next()){
+                medico=new Medico();    
+                medico.setId(Integer.parseInt(rs.getString(1)));
+                medico.setNombre(rs.getString(2));
+                medico.setEspecialidad(rs.getString(3));
+                medico.setEmail(rs.getString(4));
+                medico.setTelefono(rs.getString(5));
+                medico.setDescripcion(rs.getString(6));
+                listaMedico.add(medico);
+            }
+            
+        } catch (SQLException | NumberFormatException e) {
+        }
+        
+        return listaMedico;
     }
     
 }

@@ -7,7 +7,11 @@ package Negocios;
 
 import Datos.DataMedico;
 import Encapsulamiento.Medico;
+import java.util.ArrayList;
+
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -27,5 +31,34 @@ public class MedicoController {
         }
         
     }
+
+    public void MostrarMedicos(JTable medicoT) {
+        DefaultTableModel modelt=new DefaultTableModel();
+        medicoT.setModel(modelt);
+        DataMedico datoslist=new DataMedico();
+        
+       
+        
+        modelt.addColumn("Item");
+        modelt.addColumn("Nombre");
+        modelt.addColumn("Especialidad");
+        modelt.addColumn("Email");
+        modelt.addColumn("Telefono");
+        modelt.addColumn("Descripcion");
+        
+        Object[] column=new Object[6];
+        
+        int numregistro=datoslist.ListMedico().size();
+        
+        for (int i = 0; i <numregistro; i++) {
+            column[0]=Integer.toString(datoslist.ListMedico().get(i).getId());
+            column[1]=datoslist.ListMedico().get(i).getNombre();
+            column[2]=datoslist.ListMedico().get(i).getEspecialidad();
+            column[3]=datoslist.ListMedico().get(i).getEmail();
+            column[4]=datoslist.ListMedico().get(i).getTelefono();
+            column[5]=datoslist.ListMedico().get(i).getDescripcion();
+            modelt.addRow(column);
+        }
+   }
     
 }
