@@ -6,6 +6,7 @@
 package Presentacion;
 
 import Encapsulamiento.Usuario;
+import Negocios.UserController;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
@@ -120,6 +121,14 @@ public class RegisterUser extends javax.swing.JFrame {
             
         }
         Usuario user=new Usuario();
+        user.setNombre(nombreTxt.getText());
+        user.setEmail(emailTxt.getText());
+        user.setUsuario(userTxt.getText());
+        user.setPassword(passwordTxt.getText());
+        UserController addUser=new UserController();
+        addUser.AddUser(user);
+        this.setVisible(false);
+
         
     }//GEN-LAST:event_addUserbtnActionPerformed
 

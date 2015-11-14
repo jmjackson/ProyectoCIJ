@@ -7,7 +7,7 @@ package Datos;
 
 import Encapsulamiento.Usuario;
 import java.sql.*;
-import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -34,6 +34,23 @@ public class DataUser {
         }
        
        return principal;
+    }
+
+    public int UserAdd(Usuario user) {
+        int result=0;
+        try {
+            Connection cn=conn.dbConnect();
+            CallableStatement cs=cn.prepareCall("{call CIJDATABASE.add_User(?,?,?,?)}");
+            cs.setString(1, user.getNombre());
+            cs.setString(2, user.getEmail());
+            cs.setString(3, user.getUsuario());
+            cs.setString(4, user.getPassword());
+            
+            result=cs.executeUpdate();
+            
+        } catch (Exception e) {
+        }
+        return result;
     }
     
 }
