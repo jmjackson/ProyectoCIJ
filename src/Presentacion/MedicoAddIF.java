@@ -5,6 +5,12 @@
  */
 package Presentacion;
 
+import Encapsulamiento.Medico;
+import Encapsulamiento.Usuario;
+import Negocios.MedicoController;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+
 /**
  *
  * @author jmcito
@@ -27,93 +33,127 @@ public class MedicoAddIF extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
+        nameLbl = new javax.swing.JLabel();
+        especialidadLbl = new javax.swing.JLabel();
+        emailLbl = new javax.swing.JLabel();
+        telefonoLbl = new javax.swing.JLabel();
+        descripcionLbl = new javax.swing.JLabel();
+        TitleLbl = new javax.swing.JLabel();
+        AcceptBtn = new javax.swing.JButton();
+        CancelBtn = new javax.swing.JButton();
+        nombreText = new javax.swing.JTextField();
+        especialidadText = new javax.swing.JTextField();
+        emailText = new javax.swing.JTextField();
+        telefonoText = new javax.swing.JTextField();
+        descripcionText = new javax.swing.JTextField();
+        fondoLbl = new javax.swing.JLabel();
 
         setClosable(true);
         setIconifiable(true);
         setTitle("Agregar Medicos");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setForeground(new java.awt.Color(254, 254, 254));
-        jLabel1.setText("Nombre");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 73, -1, -1));
+        nameLbl.setForeground(new java.awt.Color(254, 254, 254));
+        nameLbl.setText("Nombre");
+        getContentPane().add(nameLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 73, -1, -1));
 
-        jLabel2.setForeground(new java.awt.Color(254, 254, 254));
-        jLabel2.setText("Especialidad");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 106, -1, -1));
+        especialidadLbl.setForeground(new java.awt.Color(254, 254, 254));
+        especialidadLbl.setText("Especialidad");
+        getContentPane().add(especialidadLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 106, -1, -1));
 
-        jLabel3.setForeground(new java.awt.Color(254, 254, 254));
-        jLabel3.setText("Email");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 139, -1, -1));
+        emailLbl.setForeground(new java.awt.Color(254, 254, 254));
+        emailLbl.setText("Email");
+        getContentPane().add(emailLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 139, -1, -1));
 
-        jButton1.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
-        jButton1.setText("Aceptar");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(208, 251, -1, -1));
+        telefonoLbl.setForeground(new java.awt.Color(254, 254, 254));
+        telefonoLbl.setText("Telefono");
+        getContentPane().add(telefonoLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 178, -1, -1));
 
-        jButton2.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
-        jButton2.setText("Cancelar");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(288, 251, -1, -1));
+        descripcionLbl.setForeground(new java.awt.Color(254, 254, 254));
+        descripcionLbl.setText("Descripcion");
+        getContentPane().add(descripcionLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 211, -1, -1));
 
-        jLabel4.setForeground(new java.awt.Color(254, 254, 254));
-        jLabel4.setText("Telefono");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 178, -1, -1));
+        TitleLbl.setText("Agregar Medicos");
+        getContentPane().add(TitleLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(144, 12, -1, -1));
 
-        jLabel5.setForeground(new java.awt.Color(254, 254, 254));
-        jLabel5.setText("Descripcion");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 211, -1, -1));
-
-        jLabel6.setText("Agregar Medicos");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(144, 12, -1, -1));
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 68, 236, -1));
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 101, 236, -1));
-        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 134, 236, -1));
-        getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 173, 236, -1));
-
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+        AcceptBtn.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
+        AcceptBtn.setText("Aceptar");
+        AcceptBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
+                AcceptBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 206, 236, -1));
+        getContentPane().add(AcceptBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(208, 251, -1, -1));
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/fondo.jpg"))); // NOI18N
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 310));
+        CancelBtn.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
+        CancelBtn.setText("Cancelar");
+        CancelBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CancelBtnActionPerformed(evt);
+            }
+        });
+        getContentPane().add(CancelBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(288, 251, -1, -1));
+        getContentPane().add(nombreText, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 68, 236, -1));
+        getContentPane().add(especialidadText, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 101, 236, -1));
+        getContentPane().add(emailText, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 134, 236, -1));
+        getContentPane().add(telefonoText, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 173, 236, -1));
+        getContentPane().add(descripcionText, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 206, 236, -1));
+
+        fondoLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/fondo.jpg"))); // NOI18N
+        getContentPane().add(fondoLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 310));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
+    private void CancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelBtnActionPerformed
+       JTextField[]campos=new JTextField[5];
+       campos[0]=nombreText;
+       campos[1]=especialidadText;
+       campos[2]=emailText;
+       campos[3]=telefonoText;
+       campos[4]=descripcionText;
+       
+        for (JTextField campo : campos) {
+            
+            campo.setText(null);
+               
+        }
+       
+        
+    }//GEN-LAST:event_CancelBtnActionPerformed
+
+    private void AcceptBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AcceptBtnActionPerformed
+        if (nombreText.getText().isEmpty()&&especialidadText.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Ingrese un nombre y una especialidad");
+            return;
+        }
+        Medico medico=new Medico();
+        medico.setNombre(nombreText.getText());
+        medico.setEspecialidad(especialidadText.getText());
+        medico.setEmail(emailText.getText());
+        medico.setTelefono(telefonoText.getText());
+        medico.setDescripcion(descripcionText.getText());
+        
+        MedicoController addMedico=new MedicoController();
+        addMedico.AddMedico(medico);
+        this.setVisible(false);
+    }//GEN-LAST:event_AcceptBtnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
+    private javax.swing.JButton AcceptBtn;
+    private javax.swing.JButton CancelBtn;
+    private javax.swing.JLabel TitleLbl;
+    private javax.swing.JLabel descripcionLbl;
+    private javax.swing.JTextField descripcionText;
+    private javax.swing.JLabel emailLbl;
+    private javax.swing.JTextField emailText;
+    private javax.swing.JLabel especialidadLbl;
+    private javax.swing.JTextField especialidadText;
+    private javax.swing.JLabel fondoLbl;
+    private javax.swing.JLabel nameLbl;
+    private javax.swing.JTextField nombreText;
+    private javax.swing.JLabel telefonoLbl;
+    private javax.swing.JTextField telefonoText;
     // End of variables declaration//GEN-END:variables
 }
