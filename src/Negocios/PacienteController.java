@@ -5,7 +5,9 @@
  */
 package Negocios;
 
+import Datos.DataPaciente;
 import Encapsulamiento.Paciente;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -14,8 +16,12 @@ import Encapsulamiento.Paciente;
 public class PacienteController {
 
     public void AddPaciente(Paciente p) {
-       
-        
+        DataPaciente AddPaciente=new DataPaciente();
+        int res;
+        res=AddPaciente.AgregarPaciente(p);
+        if (res>0) {
+            JOptionPane.showMessageDialog(null, "Datos Agregados Correctamente");
+        }
     }
     
 }
