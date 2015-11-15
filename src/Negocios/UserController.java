@@ -7,6 +7,7 @@ package Negocios;
 
 import Datos.DataUser;
 import Encapsulamiento.Usuario;
+import Presentacion.AdminUser;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,13 +19,20 @@ public class UserController {
 
     public void LoginAcceso(Usuario user) {
         DataUser verificacion=new DataUser();
+        
         Usuario intro=verificacion.LoginUser(user);
-        JOptionPane.showConfirmDialog(null, ""+intro.getNombre());
+        if((intro.getUsuario().equals(user.getUsuario()))&&
+                (user.getUsuario().equals(intro.getUsuario()))){
+            AdminUser adminpanel=new AdminUser();
+            adminpanel.setVisible(true);
+            adminpanel.UsuarioPrincipal(intro);
+        }
+        
     }
 
     public void AddUser(Usuario user) {
         
-        int result=0;
+        int result;
     DataUser agregarUsuario=new DataUser();
     result=agregarUsuario.UserAdd(user);
         if (result>0) {

@@ -5,7 +5,8 @@
  */
 package Presentacion;
 
-import java.awt.Component;
+import Encapsulamiento.Usuario;
+
 
 /**
  *
@@ -247,6 +248,10 @@ public class AdminUser extends javax.swing.JFrame {
         perfiles.setVisible(true);
     }//GEN-LAST:event_PerfilBtnActionPerformed
 
+    public void UsuarioPrincipal(Usuario intro) {
+        
+    }
+    
     private void AddMedicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddMedicoActionPerformed
             MedicoListIF listMedico=new MedicoListIF();
             desktopPane.add(listMedico);
@@ -319,5 +324,7 @@ public class AdminUser extends javax.swing.JFrame {
     private javax.swing.JMenuItem saveMenuItem;
     private javax.swing.JLabel titleLbl;
     // End of variables declaration//GEN-END:variables
+
+
 
 }

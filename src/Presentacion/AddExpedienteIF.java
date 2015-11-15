@@ -5,6 +5,12 @@
  */
 package Presentacion;
 
+import Encapsulamiento.Paciente;
+import Negocios.PacienteController;
+import java.text.SimpleDateFormat;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+
 /**
  *
  * @author jmcito
@@ -27,72 +33,64 @@ public class AddExpedienteIF extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        dateChooserCombo1 = new datechooser.beans.DateChooserCombo();
-        jComboBox1 = new javax.swing.JComboBox();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
+        ExpedienteLbl = new javax.swing.JLabel();
+        NombreLbl = new javax.swing.JLabel();
+        apellidoLbl = new javax.swing.JLabel();
+        direccionLbl = new javax.swing.JLabel();
+        fechaLbl = new javax.swing.JLabel();
+        activoLbl = new javax.swing.JLabel();
+        ExpedienteTxt = new javax.swing.JTextField();
+        NombreTxt = new javax.swing.JTextField();
+        ApellidoTxt = new javax.swing.JTextField();
+        DireccionTxt = new javax.swing.JTextField();
+        FechaCombo = new datechooser.beans.DateChooserCombo();
+        ActiveCombo = new javax.swing.JComboBox();
+        cancelarBtn = new javax.swing.JButton();
+        agregarBtn = new javax.swing.JButton();
+        titleLbl = new javax.swing.JLabel();
+        logoLbl = new javax.swing.JLabel();
+        fondoLbl = new javax.swing.JLabel();
 
         setClosable(true);
         setIconifiable(true);
         setTitle("Agregar Paciente");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setBackground(new java.awt.Color(254, 254, 254));
-        jLabel1.setForeground(new java.awt.Color(254, 254, 254));
-        jLabel1.setText("Expediente");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(84, 89, -1, -1));
+        ExpedienteLbl.setBackground(new java.awt.Color(254, 254, 254));
+        ExpedienteLbl.setForeground(new java.awt.Color(254, 254, 254));
+        ExpedienteLbl.setText("Expediente");
+        getContentPane().add(ExpedienteLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(84, 89, -1, -1));
 
-        jLabel2.setBackground(new java.awt.Color(254, 254, 254));
-        jLabel2.setForeground(new java.awt.Color(254, 254, 254));
-        jLabel2.setText("Nombre");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(107, 119, -1, -1));
+        NombreLbl.setBackground(new java.awt.Color(254, 254, 254));
+        NombreLbl.setForeground(new java.awt.Color(254, 254, 254));
+        NombreLbl.setText("Nombre");
+        getContentPane().add(NombreLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(107, 119, -1, -1));
 
-        jLabel3.setBackground(new java.awt.Color(254, 254, 254));
-        jLabel3.setForeground(new java.awt.Color(254, 254, 254));
-        jLabel3.setText("Apellido");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(108, 152, -1, -1));
+        apellidoLbl.setBackground(new java.awt.Color(254, 254, 254));
+        apellidoLbl.setForeground(new java.awt.Color(254, 254, 254));
+        apellidoLbl.setText("Apellido");
+        getContentPane().add(apellidoLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(108, 152, -1, -1));
 
-        jLabel4.setBackground(new java.awt.Color(254, 254, 254));
-        jLabel4.setForeground(new java.awt.Color(254, 254, 254));
-        jLabel4.setText("Direccion");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(98, 192, -1, -1));
+        direccionLbl.setBackground(new java.awt.Color(254, 254, 254));
+        direccionLbl.setForeground(new java.awt.Color(254, 254, 254));
+        direccionLbl.setText("Direccion");
+        getContentPane().add(direccionLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(98, 192, -1, -1));
 
-        jLabel5.setBackground(new java.awt.Color(254, 254, 254));
-        jLabel5.setForeground(new java.awt.Color(254, 254, 254));
-        jLabel5.setText("Fecha Ingreso");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(67, 228, -1, -1));
+        fechaLbl.setBackground(new java.awt.Color(254, 254, 254));
+        fechaLbl.setForeground(new java.awt.Color(254, 254, 254));
+        fechaLbl.setText("Fecha Ingreso");
+        getContentPane().add(fechaLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(67, 228, -1, -1));
 
-        jLabel6.setBackground(new java.awt.Color(254, 254, 254));
-        jLabel6.setForeground(new java.awt.Color(254, 254, 254));
-        jLabel6.setText("Activo");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(122, 253, -1, -1));
+        activoLbl.setBackground(new java.awt.Color(254, 254, 254));
+        activoLbl.setForeground(new java.awt.Color(254, 254, 254));
+        activoLbl.setText("Activo");
+        getContentPane().add(activoLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(122, 253, -1, -1));
+        getContentPane().add(ExpedienteTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 81, 246, -1));
+        getContentPane().add(NombreTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 114, 246, -1));
+        getContentPane().add(ApellidoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 147, 246, -1));
+        getContentPane().add(DireccionTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 187, 246, -1));
 
-        jButton1.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
-        jButton1.setText("Agregar");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 310, -1, -1));
-
-        jButton2.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
-        jButton2.setText("Cancelar");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 310, -1, -1));
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 81, 246, -1));
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 114, 246, -1));
-        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 147, 246, -1));
-        getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 187, 246, -1));
-
-        dateChooserCombo1.setCurrentView(new datechooser.view.appearance.AppearancesList("Light",
+        FechaCombo.setCurrentView(new datechooser.view.appearance.AppearancesList("Light",
             new datechooser.view.appearance.ViewAppearance("custom",
                 new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Ubuntu", java.awt.Font.PLAIN, 15),
                     new java.awt.Color(76, 76, 76),
@@ -133,43 +131,105 @@ public class AddExpedienteIF extends javax.swing.JInternalFrame {
                 (datechooser.view.BackRenderer)null,
                 false,
                 true)));
-    dateChooserCombo1.setCalendarPreferredSize(new java.awt.Dimension(250, 200));
-    dateChooserCombo1.setFieldFont(new java.awt.Font("Ubuntu", java.awt.Font.PLAIN, 12));
-    getContentPane().add(dateChooserCombo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 220, 246, -1));
+    FechaCombo.setCalendarPreferredSize(new java.awt.Dimension(250, 200));
+    FechaCombo.setFieldFont(new java.awt.Font("Ubuntu", java.awt.Font.PLAIN, 12));
+    getContentPane().add(FechaCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 220, 246, -1));
 
-    jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-- Seleccionado --", "Activo", "No Activo" }));
-    getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 253, 246, -1));
+    ActiveCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-- Seleccionado --", "Activo", "No Activo" }));
+    getContentPane().add(ActiveCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 253, 246, -1));
 
-    jLabel7.setText("Agregar Paciente Por Primera Vez");
-    getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(145, 12, -1, -1));
+    cancelarBtn.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
+    cancelarBtn.setText("Cancelar");
+    cancelarBtn.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            cancelarBtnActionPerformed(evt);
+        }
+    });
+    getContentPane().add(cancelarBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 310, 90, -1));
 
-    jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/exportar.png"))); // NOI18N
-    getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(79, 12, -1, -1));
+    agregarBtn.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
+    agregarBtn.setText("Agregar");
+    agregarBtn.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            agregarBtnActionPerformed(evt);
+        }
+    });
+    getContentPane().add(agregarBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 310, 90, -1));
 
-    jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/fondo.jpg"))); // NOI18N
-    getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 490, 360));
+    titleLbl.setForeground(new java.awt.Color(254, 254, 254));
+    titleLbl.setText("Agregar Paciente Por Primera Vez");
+    getContentPane().add(titleLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(145, 12, -1, -1));
+
+    logoLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/exportar.png"))); // NOI18N
+    getContentPane().add(logoLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(79, 12, -1, -1));
+
+    fondoLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/fondo.jpg"))); // NOI18N
+    getContentPane().add(fondoLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 460, 360));
 
     pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void agregarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarBtnActionPerformed
+               JTextField[]campos=new JTextField[4];
+        campos[0]=ExpedienteTxt;
+        campos[1]=NombreTxt;
+        campos[2]=ApellidoTxt;
+        campos[3]=DireccionTxt;
+        
+        for (JTextField campo : campos) {
+            if (campo.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Uno o mas campos estan vacios");
+                return;
+            }   
+          }
+        Paciente p=new Paciente();
+        p.setExpediente(Integer.parseInt(ExpedienteTxt.getText()));
+        p.setNombre(NombreTxt.getText());
+        p.setApellido(ApellidoTxt.getText());
+        p.setDireccion(DireccionTxt.getText());
+        SimpleDateFormat fechaInput=new SimpleDateFormat("yyyy-MM-dd");
+        p.setFechaEntrada(fechaInput.format(FechaCombo.getDateFormat()));
+        p.setActivo(ActiveCombo.getSelectedItem().toString());
+        
+        PacienteController addpac=new PacienteController();
+        addpac.AddPaciente(p);
+        
+        
+    }//GEN-LAST:event_agregarBtnActionPerformed
+
+    private void cancelarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarBtnActionPerformed
+        JTextField[]campos=new JTextField[4];
+        campos[0]=ExpedienteTxt;
+        campos[1]=NombreTxt;
+        campos[2]=ApellidoTxt;
+        campos[3]=DireccionTxt;
+        
+        for (JTextField campo : campos) {
+            campo.setText(null);
+                
+            }
+        
+    
+    }//GEN-LAST:event_cancelarBtnActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private datechooser.beans.DateChooserCombo dateChooserCombo1;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox jComboBox1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JComboBox ActiveCombo;
+    private javax.swing.JTextField ApellidoTxt;
+    private javax.swing.JTextField DireccionTxt;
+    private javax.swing.JLabel ExpedienteLbl;
+    private javax.swing.JTextField ExpedienteTxt;
+    private datechooser.beans.DateChooserCombo FechaCombo;
+    private javax.swing.JLabel NombreLbl;
+    private javax.swing.JTextField NombreTxt;
+    private javax.swing.JLabel activoLbl;
+    private javax.swing.JButton agregarBtn;
+    private javax.swing.JLabel apellidoLbl;
+    private javax.swing.JButton cancelarBtn;
+    private javax.swing.JLabel direccionLbl;
+    private javax.swing.JLabel fechaLbl;
+    private javax.swing.JLabel fondoLbl;
+    private javax.swing.JLabel logoLbl;
+    private javax.swing.JLabel titleLbl;
     // End of variables declaration//GEN-END:variables
 }

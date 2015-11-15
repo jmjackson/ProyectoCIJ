@@ -5,10 +5,17 @@
  */
 package Negocios;
 
+import Encapsulamiento.Paciente;
+
 /**
  *
  * @author jmcito
  */
 public class PacienteController {
+
+    public void AddPaciente(Paciente p) {
+        Paciente datos=new Paciente();
+        datos=p;
+    }
     
 }
