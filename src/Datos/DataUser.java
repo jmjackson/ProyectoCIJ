@@ -44,8 +44,7 @@ public class DataUser {
             }
             else   {
                JOptionPane.showMessageDialog(null, "password incorrecto");
-                LoginUserForm userForm=new LoginUserForm();
-                userForm.setVisible(true);
+
             }
         } catch (SQLException | HeadlessException e) {
             

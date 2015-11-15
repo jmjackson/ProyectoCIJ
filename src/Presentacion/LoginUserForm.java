@@ -101,6 +101,7 @@ public class LoginUserForm extends javax.swing.JFrame {
             this.setVisible(false);
             
             
+            
         }
         else{
             JOptionPane.showMessageDialog(null, "¡Llene los campos vacios!");

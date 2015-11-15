@@ -129,6 +129,14 @@
   </Layout>
   <SubComponents>
     <Container class="javax.swing.JDesktopPane" name="desktopPane">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="92" green="87" red="5a" type="rgb"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="7c" green="80" red="45" type="rgb"/>
+        </Property>
+      </Properties>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
         <Property name="useNullLayout" type="boolean" value="true"/>
@@ -136,6 +144,9 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="titleLbl">
           <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="f3" green="f3" red="f5" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Administrador de Expedientes"/>
           </Properties>
           <Constraints>
@@ -171,12 +182,12 @@
         <Component class="javax.swing.JLabel" name="UserLbl">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Recursos/userinf.png"/>
+              <Image iconType="3" name="/Recursos/perfil2.png"/>
             </Property>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="620" y="60" width="-1" height="70"/>
+              <AbsoluteConstraints x="640" y="70" width="50" height="50"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -213,7 +224,7 @@
         <Component class="javax.swing.JButton" name="Medbtn">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Recursos/infor.png"/>
+              <Image iconType="3" name="/Recursos/Medadd.png"/>
             </Property>
           </Properties>
           <Events>
@@ -221,14 +232,14 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="360" y="140" width="70" height="60"/>
+              <AbsoluteConstraints x="360" y="140" width="60" height="60"/>
             </Constraint>
           </Constraints>
         </Component>
         <Component class="javax.swing.JButton" name="PerfilBtn">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Recursos/usuario.png"/>
+              <Image iconType="3" name="/Recursos/perfil.png"/>
             </Property>
           </Properties>
           <Events>
@@ -236,12 +247,15 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="620" y="140" width="70" height="70"/>
+              <AbsoluteConstraints x="630" y="140" width="60" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="addPaclbl">
           <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="f3" green="f3" red="f5" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Agregar Paciente"/>
           </Properties>
           <Constraints>
@@ -252,6 +266,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="Controllbl">
           <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="f3" green="f3" red="f5" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Control de Pacientes"/>
           </Properties>
           <Constraints>
@@ -262,16 +279,22 @@
         </Component>
         <Component class="javax.swing.JLabel" name="medicosLbl">
           <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="f3" green="f3" red="f5" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Agregar Medicos"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="450" y="160" width="70" height="-1"/>
+              <AbsoluteConstraints x="450" y="160" width="130" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="perfilLbl">
           <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="f3" green="f3" red="f5" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Perfil"/>
           </Properties>
           <Constraints>
@@ -282,24 +305,29 @@
         </Component>
         <Component class="javax.swing.JButton" name="AddMedico">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jButton1"/>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Recursos/MedList.png"/>
+            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AddMedicoActionPerformed"/>
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="360" y="220" width="-1" height="60"/>
+              <AbsoluteConstraints x="360" y="210" width="60" height="60"/>
             </Constraint>
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="f3" green="f3" red="f5" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Lista de Medicos"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="450" y="240" width="130" height="-1"/>
+              <AbsoluteConstraints x="450" y="230" width="130" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>

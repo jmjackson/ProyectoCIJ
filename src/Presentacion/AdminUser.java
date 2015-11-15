@@ -62,6 +62,10 @@ public class AdminUser extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        desktopPane.setBackground(new java.awt.Color(90, 135, 146));
+        desktopPane.setForeground(new java.awt.Color(69, 128, 124));
+
+        titleLbl.setForeground(new java.awt.Color(245, 243, 243));
         titleLbl.setText("Administrador de Expedientes");
         desktopPane.add(titleLbl);
         titleLbl.setBounds(350, 20, 220, 20);
@@ -74,9 +78,9 @@ public class AdminUser extends javax.swing.JFrame {
         desktopPane.add(expedienteLbl);
         expedienteLbl.setBounds(60, 70, 48, 60);
 
-        UserLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/userinf.png"))); // NOI18N
+        UserLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/perfil2.png"))); // NOI18N
         desktopPane.add(UserLbl);
-        UserLbl.setBounds(620, 60, 64, 70);
+        UserLbl.setBounds(640, 70, 50, 50);
 
         AddPacbtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/exportar.png"))); // NOI18N
         AddPacbtn.addActionListener(new java.awt.event.ActionListener() {
@@ -96,52 +100,57 @@ public class AdminUser extends javax.swing.JFrame {
         desktopPane.add(listPacBtn);
         listPacBtn.setBounds(50, 210, 60, 60);
 
-        Medbtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/infor.png"))); // NOI18N
+        Medbtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Medadd.png"))); // NOI18N
         Medbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MedbtnActionPerformed(evt);
             }
         });
         desktopPane.add(Medbtn);
-        Medbtn.setBounds(360, 140, 70, 60);
+        Medbtn.setBounds(360, 140, 60, 60);
 
-        PerfilBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/usuario.png"))); // NOI18N
+        PerfilBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/perfil.png"))); // NOI18N
         PerfilBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PerfilBtnActionPerformed(evt);
             }
         });
         desktopPane.add(PerfilBtn);
-        PerfilBtn.setBounds(620, 140, 70, 70);
+        PerfilBtn.setBounds(630, 140, 60, 60);
 
+        addPaclbl.setForeground(new java.awt.Color(245, 243, 243));
         addPaclbl.setText("Agregar Paciente");
         desktopPane.add(addPaclbl);
         addPaclbl.setBounds(140, 170, 130, 17);
 
+        Controllbl.setForeground(new java.awt.Color(245, 243, 243));
         Controllbl.setText("Control de Pacientes");
         desktopPane.add(Controllbl);
         Controllbl.setBounds(140, 230, 150, 17);
 
+        medicosLbl.setForeground(new java.awt.Color(245, 243, 243));
         medicosLbl.setText("Agregar Medicos");
         desktopPane.add(medicosLbl);
-        medicosLbl.setBounds(450, 160, 70, 17);
+        medicosLbl.setBounds(450, 160, 130, 17);
 
+        perfilLbl.setForeground(new java.awt.Color(245, 243, 243));
         perfilLbl.setText("Perfil");
         desktopPane.add(perfilLbl);
         perfilLbl.setBounds(700, 160, 37, 17);
 
-        AddMedico.setText("jButton1");
+        AddMedico.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/MedList.png"))); // NOI18N
         AddMedico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AddMedicoActionPerformed(evt);
             }
         });
         desktopPane.add(AddMedico);
-        AddMedico.setBounds(360, 220, 72, 60);
+        AddMedico.setBounds(360, 210, 60, 60);
 
+        jLabel1.setForeground(new java.awt.Color(245, 243, 243));
         jLabel1.setText("Lista de Medicos");
         desktopPane.add(jLabel1);
-        jLabel1.setBounds(450, 240, 130, 17);
+        jLabel1.setBounds(450, 230, 130, 17);
 
         fileMenu.setMnemonic('f');
         fileMenu.setText("File");
