@@ -14,8 +14,8 @@ import Encapsulamiento.Paciente;
 public class PacienteController {
 
     public void AddPaciente(Paciente p) {
-        Paciente datos=new Paciente();
-        datos=p;
+       
+        
     }
     
 }

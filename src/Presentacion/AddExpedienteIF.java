@@ -7,6 +7,7 @@ package Presentacion;
 
 import Encapsulamiento.Paciente;
 import Negocios.PacienteController;
+import java.sql.Date;
 import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -182,15 +183,15 @@ public class AddExpedienteIF extends javax.swing.JInternalFrame {
                 return;
             }   
           }
+        
         Paciente p=new Paciente();
         p.setExpediente(Integer.parseInt(ExpedienteTxt.getText()));
         p.setNombre(NombreTxt.getText());
         p.setApellido(ApellidoTxt.getText());
         p.setDireccion(DireccionTxt.getText());
-        SimpleDateFormat fechaInput=new SimpleDateFormat("yyyy-MM-dd");
-        p.setFechaEntrada(fechaInput.format(FechaCombo.getDateFormat()));
+        p.setFechaEntrada(FechaCombo.getText());
         p.setActivo(ActiveCombo.getSelectedItem().toString());
-        
+       
         PacienteController addpac=new PacienteController();
         addpac.AddPaciente(p);
         
