@@ -6,8 +6,7 @@
 package Presentacion;
 
 import Encapsulamiento.Paciente;
-import Negocios.PacienteController;
-import java.text.SimpleDateFormat;
+import Negocios.PacienteController; 
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 

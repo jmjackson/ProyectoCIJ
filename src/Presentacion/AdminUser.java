@@ -44,7 +44,8 @@ public class AdminUser extends javax.swing.JFrame {
         medicosLbl = new javax.swing.JLabel();
         perfilLbl = new javax.swing.JLabel();
         AddMedico = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        ListMLbl = new javax.swing.JLabel();
+        bienvenidoLbl = new javax.swing.JLabel();
         menuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         openMenuItem = new javax.swing.JMenuItem();
@@ -61,6 +62,7 @@ public class AdminUser extends javax.swing.JFrame {
         aboutMenuItem = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Administrador de Expedientes");
 
         desktopPane.setBackground(new java.awt.Color(90, 135, 146));
         desktopPane.setForeground(new java.awt.Color(69, 128, 124));
@@ -68,11 +70,11 @@ public class AdminUser extends javax.swing.JFrame {
         titleLbl.setForeground(new java.awt.Color(245, 243, 243));
         titleLbl.setText("Administrador de Expedientes");
         desktopPane.add(titleLbl);
-        titleLbl.setBounds(350, 20, 220, 20);
+        titleLbl.setBounds(350, 10, 220, 20);
 
         medlabl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/meds.png"))); // NOI18N
         desktopPane.add(medlabl);
-        medlabl.setBounds(370, 70, 50, 50);
+        medlabl.setBounds(410, 70, 50, 50);
 
         expedienteLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/iconmonstr-user-14-icon-48.png"))); // NOI18N
         desktopPane.add(expedienteLbl);
@@ -80,7 +82,7 @@ public class AdminUser extends javax.swing.JFrame {
 
         UserLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/perfil2.png"))); // NOI18N
         desktopPane.add(UserLbl);
-        UserLbl.setBounds(640, 70, 50, 50);
+        UserLbl.setBounds(720, 70, 50, 50);
 
         AddPacbtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/exportar.png"))); // NOI18N
         AddPacbtn.addActionListener(new java.awt.event.ActionListener() {
@@ -107,7 +109,7 @@ public class AdminUser extends javax.swing.JFrame {
             }
         });
         desktopPane.add(Medbtn);
-        Medbtn.setBounds(360, 140, 60, 60);
+        Medbtn.setBounds(400, 140, 60, 60);
 
         PerfilBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/perfil.png"))); // NOI18N
         PerfilBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -116,7 +118,7 @@ public class AdminUser extends javax.swing.JFrame {
             }
         });
         desktopPane.add(PerfilBtn);
-        PerfilBtn.setBounds(630, 140, 60, 60);
+        PerfilBtn.setBounds(710, 140, 60, 60);
 
         addPaclbl.setForeground(new java.awt.Color(245, 243, 243));
         addPaclbl.setText("Agregar Paciente");
@@ -131,12 +133,12 @@ public class AdminUser extends javax.swing.JFrame {
         medicosLbl.setForeground(new java.awt.Color(245, 243, 243));
         medicosLbl.setText("Agregar Medicos");
         desktopPane.add(medicosLbl);
-        medicosLbl.setBounds(450, 160, 130, 17);
+        medicosLbl.setBounds(500, 160, 130, 17);
 
         perfilLbl.setForeground(new java.awt.Color(245, 243, 243));
         perfilLbl.setText("Perfil");
         desktopPane.add(perfilLbl);
-        perfilLbl.setBounds(700, 160, 37, 17);
+        perfilLbl.setBounds(800, 160, 37, 17);
 
         AddMedico.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/MedList.png"))); // NOI18N
         AddMedico.addActionListener(new java.awt.event.ActionListener() {
@@ -145,12 +147,16 @@ public class AdminUser extends javax.swing.JFrame {
             }
         });
         desktopPane.add(AddMedico);
-        AddMedico.setBounds(360, 210, 60, 60);
+        AddMedico.setBounds(400, 210, 60, 60);
 
-        jLabel1.setForeground(new java.awt.Color(245, 243, 243));
-        jLabel1.setText("Lista de Medicos");
-        desktopPane.add(jLabel1);
-        jLabel1.setBounds(450, 230, 130, 17);
+        ListMLbl.setForeground(new java.awt.Color(245, 243, 243));
+        ListMLbl.setText("Lista de Medicos");
+        desktopPane.add(ListMLbl);
+        ListMLbl.setBounds(500, 230, 130, 17);
+
+        bienvenidoLbl.setText("jLabel1");
+        desktopPane.add(bienvenidoLbl);
+        bienvenidoLbl.setBounds(630, 30, 250, 17);
 
         fileMenu.setMnemonic('f');
         fileMenu.setText("File");
@@ -219,7 +225,9 @@ public class AdminUser extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 896, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(desktopPane, javax.swing.GroupLayout.PREFERRED_SIZE, 950, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -253,11 +261,13 @@ public class AdminUser extends javax.swing.JFrame {
 
     private void PerfilBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PerfilBtnActionPerformed
         PerfilIF perfiles=new PerfilIF();
+        
         desktopPane.add(perfiles);
         perfiles.setVisible(true);
     }//GEN-LAST:event_PerfilBtnActionPerformed
 
     public void UsuarioPrincipal(Usuario intro) {
+        bienvenidoLbl.setText("Bienvenido "+ intro.getNombre());
         
     }
     
@@ -306,11 +316,13 @@ public class AdminUser extends javax.swing.JFrame {
     private javax.swing.JButton AddMedico;
     private javax.swing.JButton AddPacbtn;
     private javax.swing.JLabel Controllbl;
+    private javax.swing.JLabel ListMLbl;
     private javax.swing.JButton Medbtn;
     private javax.swing.JButton PerfilBtn;
     private javax.swing.JLabel UserLbl;
     private javax.swing.JMenuItem aboutMenuItem;
     private javax.swing.JLabel addPaclbl;
+    private javax.swing.JLabel bienvenidoLbl;
     private javax.swing.JMenuItem contentMenuItem;
     private javax.swing.JMenuItem copyMenuItem;
     private javax.swing.JMenuItem cutMenuItem;
@@ -321,7 +333,6 @@ public class AdminUser extends javax.swing.JFrame {
     private javax.swing.JLabel expedienteLbl;
     private javax.swing.JMenu fileMenu;
     private javax.swing.JMenu helpMenu;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JButton listPacBtn;
     private javax.swing.JLabel medicosLbl;
     private javax.swing.JLabel medlabl;
@@ -334,6 +345,7 @@ public class AdminUser extends javax.swing.JFrame {
     private javax.swing.JLabel titleLbl;
     // End of variables declaration//GEN-END:variables
 
+    
 
 
 }

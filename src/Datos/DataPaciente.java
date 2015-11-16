@@ -8,11 +8,13 @@ package Datos;
 import Encapsulamiento.Paciente;
 import java.sql.CallableStatement;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -56,5 +58,34 @@ public class DataPaciente {
         }
         return Result;
     }
+
+    public ArrayList<Paciente> MostrarPaciente() {
+       ArrayList listapaciente =new ArrayList();
+       Paciente paciente;
+       
+        try {
+            Connection cn= conn.dbConnect();
+            CallableStatement cs=cn.prepareCall("{call CIJDATABASE.ConsultPaciente()}");
+            ResultSet st=cs.executeQuery();
+            while (st.next()) {
+                paciente=new Paciente();
+                paciente.setId(Integer.parseInt(st.getString(1)));
+                paciente.setExpediente(Integer.parseInt(st.getString(2)));
+                paciente.setNombre(st.getString(3));
+                paciente.setApellido(st.getString(4));
+                paciente.setDireccion(st.getString(5));
+                paciente.setFechaEntrada(st.getString(6));
+                paciente.setActivo(st.getString(7));
+                
+                listapaciente.add(paciente);
+                
+                
+            }
+        } catch (SQLException | NumberFormatException e) {
+        }
+       return listapaciente;
+               
+    }
+    
     
 }

@@ -6,6 +6,7 @@
 package Presentacion;
 
 import Negocios.MedicoController;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -73,6 +74,11 @@ public class MedicoListIF extends javax.swing.JInternalFrame {
 
         editarBtn.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
         editarBtn.setText("Editar");
+        editarBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editarBtnActionPerformed(evt);
+            }
+        });
         getContentPane().add(editarBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 140, 85, -1));
 
         actualizarBtn.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
@@ -90,23 +96,23 @@ public class MedicoListIF extends javax.swing.JInternalFrame {
 
         especialidadLbl.setForeground(new java.awt.Color(254, 254, 254));
         especialidadLbl.setText("Especialidad");
-        getContentPane().add(especialidadLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 136, -1, -1));
-        getContentPane().add(especialidadTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 131, 200, -1));
+        getContentPane().add(especialidadLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, -1, -1));
+        getContentPane().add(especialidadTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 200, -1));
 
         telefonoLbl.setForeground(new java.awt.Color(254, 254, 254));
         telefonoLbl.setText("Telefono");
-        getContentPane().add(telefonoLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 97, -1, -1));
-        getContentPane().add(telefonoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 92, 200, -1));
+        getContentPane().add(telefonoLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 60, -1, -1));
+        getContentPane().add(telefonoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 50, 200, -1));
 
         emailLbl.setForeground(new java.awt.Color(254, 254, 254));
         emailLbl.setText("Email");
-        getContentPane().add(emailLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(417, 52, -1, -1));
+        getContentPane().add(emailLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, -1, -1));
 
         descricpcionLbl.setForeground(new java.awt.Color(254, 254, 254));
         descricpcionLbl.setText("Descripción");
-        getContentPane().add(descricpcionLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(372, 97, -1, -1));
-        getContentPane().add(emailTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(466, 47, 200, -1));
-        getContentPane().add(descripcionTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(466, 92, 200, -1));
+        getContentPane().add(descricpcionLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 100, -1, -1));
+        getContentPane().add(emailTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, 200, -1));
+        getContentPane().add(descripcionTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 90, 200, -1));
 
         tituloLbl.setForeground(new java.awt.Color(254, 254, 254));
         tituloLbl.setText("Lista de Medicos");
@@ -118,6 +124,22 @@ public class MedicoListIF extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void editarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarBtnActionPerformed
+        
+        int fila=medicoTable.getSelectedRow();
+        
+        
+        if (fila>=0) {
+            nombreTxt.setText(String.valueOf(medicoTable.getValueAt(fila, 1)));
+            especialidadTxt.setText(String.valueOf(medicoTable.getValueAt(fila, 2)));
+            emailTxt.setText(String.valueOf(medicoTable.getValueAt(fila, 3)));
+            telefonoTxt.setText(String.valueOf(medicoTable.getValueAt(fila, 4)));
+            descripcionTxt.setText(String.valueOf(medicoTable.getValueAt(fila, 5)));
+        }
+        
+        
+    }//GEN-LAST:event_editarBtnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

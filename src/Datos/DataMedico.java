@@ -8,7 +8,7 @@ package Datos;
 import Encapsulamiento.Medico;
 import java.sql.*;
 import java.util.ArrayList;
-import javax.swing.JOptionPane;
+
 
 /**
  *
