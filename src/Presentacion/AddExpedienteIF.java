@@ -149,7 +149,7 @@ public class AddExpedienteIF extends javax.swing.JInternalFrame {
         p.setActivo(ActiveCombo.getSelectedItem().toString());
         PacienteController addpac=new PacienteController();
         addpac.AddPaciente(p);
-        
+        this.setVisible(false);
         
     }//GEN-LAST:event_agregarBtnActionPerformed
 

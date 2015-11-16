@@ -27,29 +27,37 @@ public class ListExpedienteIF extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
+        TituloLbl = new javax.swing.JLabel();
+        ExpedienteTxt = new javax.swing.JTextField();
+        NombreTxt = new javax.swing.JTextField();
+        ApellidoTxt = new javax.swing.JTextField();
+        DireccionTxt = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        ExpedienteLbl = new javax.swing.JLabel();
+        NombreLbl = new javax.swing.JLabel();
+        ApellidoLbl = new javax.swing.JLabel();
+        DireccionLbl = new javax.swing.JLabel();
+        FcechaLbl = new javax.swing.JLabel();
+        ActivoLbl = new javax.swing.JLabel();
+        MostrarEBtn = new javax.swing.JButton();
+        EditarBtn = new javax.swing.JButton();
+        ActualizarBtn = new javax.swing.JButton();
+        FechaCombo = new datechooser.beans.DateChooserCombo();
+        ActivoCombo = new javax.swing.JComboBox();
+        jLabel1 = new javax.swing.JLabel();
 
-        jLabel1.setText("Control de Expediente");
+        setClosable(true);
+        setIconifiable(true);
+        setTitle("Expedientes");
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextField1.setText("jTextField1");
-
-        jTextField2.setText("jTextField2");
-
-        jTextField3.setText("jTextField3");
-
-        jTextField4.setText("jTextField4");
-
-        jTextField5.setText("jTextField5");
-
-        jTextField6.setText("jTextField6");
+        TituloLbl.setText("Control de Expediente");
+        getContentPane().add(TituloLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(315, 12, -1, -1));
+        getContentPane().add(ExpedienteTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(123, 47, 190, -1));
+        getContentPane().add(NombreTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(123, 86, 190, -1));
+        getContentPane().add(ApellidoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(123, 119, 190, -1));
+        getContentPane().add(DireccionTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(469, 47, 190, -1));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -64,68 +72,65 @@ public class ListExpedienteIF extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(285, 285, 285))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 656, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(149, 149, 149)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(123, 123, 123))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(20, 20, 20)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 193, 733, 134));
+
+        ExpedienteLbl.setText("# Expediente");
+        getContentPane().add(ExpedienteLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 52, -1, -1));
+
+        NombreLbl.setText("Nombre");
+        getContentPane().add(NombreLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 91, -1, -1));
+
+        ApellidoLbl.setText("Apellido");
+        getContentPane().add(ApellidoLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 124, -1, -1));
+
+        DireccionLbl.setText("Dirección");
+        getContentPane().add(DireccionLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(371, 52, -1, -1));
+
+        FcechaLbl.setText("Fecha Entrada");
+        getContentPane().add(FcechaLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(337, 80, -1, -1));
+
+        ActivoLbl.setText("Activo");
+        getContentPane().add(ActivoLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(395, 118, -1, -1));
+
+        MostrarEBtn.setText("Mostrar Expediente");
+        getContentPane().add(MostrarEBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 150, -1, -1));
+
+        EditarBtn.setText("Editar");
+        getContentPane().add(EditarBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 150, 90, -1));
+
+        ActualizarBtn.setText("Actualizar");
+        getContentPane().add(ActualizarBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 150, 120, -1));
+        getContentPane().add(FechaCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(469, 80, 190, -1));
+
+        ActivoCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-- Seleccionar --", "Activo", "No Activo" }));
+        getContentPane().add(ActivoCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(469, 113, 190, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/fondo.jpg"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 340));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox ActivoCombo;
+    private javax.swing.JLabel ActivoLbl;
+    private javax.swing.JButton ActualizarBtn;
+    private javax.swing.JLabel ApellidoLbl;
+    private javax.swing.JTextField ApellidoTxt;
+    private javax.swing.JLabel DireccionLbl;
+    private javax.swing.JTextField DireccionTxt;
+    private javax.swing.JButton EditarBtn;
+    private javax.swing.JLabel ExpedienteLbl;
+    private javax.swing.JTextField ExpedienteTxt;
+    private javax.swing.JLabel FcechaLbl;
+    private datechooser.beans.DateChooserCombo FechaCombo;
+    private javax.swing.JButton MostrarEBtn;
+    private javax.swing.JLabel NombreLbl;
+    private javax.swing.JTextField NombreTxt;
+    private javax.swing.JLabel TituloLbl;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
     // End of variables declaration//GEN-END:variables
 }

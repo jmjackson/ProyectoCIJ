@@ -34,8 +34,7 @@ public class DataPaciente {
             DateFormat first=new SimpleDateFormat("MM/dd/yy");
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
             
-        
-           
+ 
         int Result=0;
         try {
             Date fecha=first.parse(p.getFechaEntrada());
@@ -52,7 +51,7 @@ public class DataPaciente {
             
             Result=cs.executeUpdate();
             
-        } catch (Exception e) {
+        } catch (ParseException | SQLException e) {
             JOptionPane.showConfirmDialog(null, e.toString());
         }
         return Result;
