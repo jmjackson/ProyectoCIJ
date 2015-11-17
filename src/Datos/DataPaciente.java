@@ -5,6 +5,7 @@
  */
 package Datos;
 
+import Encapsulamiento.Medico;
 import Encapsulamiento.Paciente;
 import java.sql.CallableStatement;
 import java.sql.Connection;
@@ -86,6 +87,7 @@ public class DataPaciente {
        return listapaciente;
                
     }
+
     
     
 }

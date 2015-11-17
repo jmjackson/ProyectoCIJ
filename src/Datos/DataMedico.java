@@ -8,6 +8,7 @@ package Datos;
 import Encapsulamiento.Medico;
 import java.sql.*;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 
 /**
@@ -15,12 +16,37 @@ import java.util.ArrayList;
  * @author jmcito
  */
 public class DataMedico {
+
+
     
     DataConexion conn;
 
     public DataMedico() {
        conn=new DataConexion();
     }
+    
+    
+   public int Actualizar(Medico actualizarM) {
+        int result=0;
+        
+        try {
+            Connection conex=conn.dbConnect();
+            CallableStatement cs=conex.prepareCall("{call CIJDATABASE.UpdateMedicos(?,?,?,?,?,?)}");
+            cs.setString(1, Integer.toString(actualizarM.getId()));
+            cs.setString(2, actualizarM.getNombre());
+            cs.setString(3, actualizarM.getEspecialidad());
+            cs.setString(4, actualizarM.getEmail());
+            cs.setString(5, actualizarM.getTelefono());
+            cs.setString(6, actualizarM.getDescripcion());
+            result=cs.executeUpdate();
+            
+       } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.toString());
+       }
+        
+        return result;
+    }
+    
     
     public int AgregarMedico(Medico medico) {
         int result=0;

@@ -18,7 +18,7 @@ import javax.swing.table.DefaultTableModel;
 public class MedicoController {
 
     public void AddMedico(Medico medico) {
-        int result=0;
+        int result;
         DataMedico MedicoData=new DataMedico();
         result=MedicoData.AgregarMedico(medico);
         if(result>0){
@@ -58,5 +58,14 @@ public class MedicoController {
             modelt.addRow(column);
         }
    }
+
+    public void Actualizar(Medico actualizarM) {
+        int res;
+        DataMedico updatem=new DataMedico();
+        res=updatem.Actualizar(actualizarM);
+        if (res>0) {
+            JOptionPane.showMessageDialog(null, "Datos Actualizados Correctamente");
+        }
+    }
     
 }

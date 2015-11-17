@@ -5,8 +5,11 @@
  */
 package Presentacion;
 
+import Encapsulamiento.Medico;
 import Negocios.MedicoController;
+import Negocios.PacienteController;
 import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -83,11 +86,16 @@ public class MedicoListIF extends javax.swing.JInternalFrame {
 
         actualizarBtn.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
         actualizarBtn.setText("Actualizar");
-        getContentPane().add(actualizarBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 140, 80, -1));
+        actualizarBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                actualizarBtnActionPerformed(evt);
+            }
+        });
+        getContentPane().add(actualizarBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 140, 100, -1));
 
         jButton3.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
         jButton3.setText("Eliminar");
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 140, 79, -1));
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 140, 90, -1));
 
         nombreLbl.setForeground(new java.awt.Color(254, 254, 254));
         nombreLbl.setText("Nombre");
@@ -127,19 +135,62 @@ public class MedicoListIF extends javax.swing.JInternalFrame {
 
     private void editarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarBtnActionPerformed
         
-        int fila=medicoTable.getSelectedRow();
+        Medico actualizarM;
+        actualizarM=obtenermedico();
+        nombreTxt.setText(actualizarM.getNombre());
+        especialidadTxt.setText(actualizarM.getEspecialidad());
+        emailTxt.setText(actualizarM.getEmail());
+        telefonoTxt.setText(actualizarM.getTelefono());
+        descripcionTxt.setText(actualizarM.getDescripcion());
         
         
-        if (fila>=0) {
-            nombreTxt.setText(String.valueOf(medicoTable.getValueAt(fila, 1)));
-            especialidadTxt.setText(String.valueOf(medicoTable.getValueAt(fila, 2)));
-            emailTxt.setText(String.valueOf(medicoTable.getValueAt(fila, 3)));
-            telefonoTxt.setText(String.valueOf(medicoTable.getValueAt(fila, 4)));
-            descripcionTxt.setText(String.valueOf(medicoTable.getValueAt(fila, 5)));
-        }
+        
         
         
     }//GEN-LAST:event_editarBtnActionPerformed
+
+    private Medico obtenermedico(){
+        Medico update=null;
+        int fila=medicoTable.getSelectedRow();
+        if (fila>=0) {
+            update=new Medico();
+            update.setId(Integer.parseInt(String.valueOf(medicoTable.getValueAt(fila, 0))));
+            update.setNombre(String.valueOf(medicoTable.getValueAt(fila, 1)));
+            update.setEspecialidad(String.valueOf(medicoTable.getValueAt(fila, 2)));
+            update.setEmail(String.valueOf(medicoTable.getValueAt(fila, 3)));
+            update.setTelefono(String.valueOf(medicoTable.getValueAt(fila, 4)));
+            update.setDescripcion(String.valueOf(medicoTable.getValueAt(fila, 5)));
+            
+        }
+        
+        return update;
+    }
+    
+    private void actualizarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actualizarBtnActionPerformed
+    
+      Medico update;
+               update=obtenermedico();
+               
+        if (nombreTxt.getText().isEmpty()||especialidadTxt.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Nombre y Especialidad son requeridos");
+            return;
+        }
+      
+        Medico actualizarM=new Medico();
+        actualizarM.setId(update.getId());
+        actualizarM.setNombre(nombreTxt.getText());
+        actualizarM.setEspecialidad(especialidadTxt.getText());
+        actualizarM.setEmail(emailTxt.getText());
+        actualizarM.setTelefono(telefonoTxt.getText());
+        actualizarM.setDescripcion(descripcionTxt.getText());
+        
+        MedicoController updatem=new MedicoController();
+        updatem.Actualizar(actualizarM);
+        this.setVisible(false);
+        
+        
+        
+    }//GEN-LAST:event_actualizarBtnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -161,4 +212,6 @@ public class MedicoListIF extends javax.swing.JInternalFrame {
     private javax.swing.JTextField telefonoTxt;
     private javax.swing.JLabel tituloLbl;
     // End of variables declaration//GEN-END:variables
+
+
 }

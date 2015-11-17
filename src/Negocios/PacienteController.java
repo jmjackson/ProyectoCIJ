@@ -6,6 +6,7 @@
 package Negocios;
 
 import Datos.DataPaciente;
+import Encapsulamiento.Medico;
 import Encapsulamiento.Paciente;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -55,5 +56,7 @@ public class PacienteController {
                    
         }
     }
+
+    
     
 }
