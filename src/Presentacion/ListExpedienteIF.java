@@ -6,14 +6,9 @@
 package Presentacion;
 
 import Encapsulamiento.Paciente;
-import Negocios.ExpedienteController;
+
 import Negocios.PacienteController;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
@@ -139,6 +134,11 @@ public class ListExpedienteIF extends javax.swing.JInternalFrame {
         getContentPane().add(FechaIngreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 80, 190, -1));
 
         ActivoCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-- Seleccionar --", "Activo", "No Activo" }));
+        ActivoCombo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ActivoComboActionPerformed(evt);
+            }
+        });
         getContentPane().add(ActivoCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(469, 113, 190, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/fondo.jpg"))); // NOI18N
@@ -192,18 +192,34 @@ public class ListExpedienteIF extends javax.swing.JInternalFrame {
        
         PacienteController updateEx=new PacienteController();
         updateEx.Actualizar(update);
+        this.setVisible(false);
     }//GEN-LAST:event_ActualizarBtnActionPerformed
 
     private void MostrarEBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MostrarEBtnActionPerformed
         Paciente mostrar;
-        mostrar=updatePaciente();
+        int fila=ExpedienteTable.getSelectedRow();
+        if (fila>=0) {
+           mostrar=updatePaciente();        
+           ExpedienteShowIf expframe=new ExpedienteShowIf();
+          AdminUser.desktopPane.add(expframe);
+          expframe.setVisible(true);
+         expframe.Paciente(mostrar); 
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Elija un Paciente");
+        }
         
-        ExpedienteShowIf expframe=new ExpedienteShowIf();
-        AdminUser.desktopPane.add(expframe);
-        expframe.setVisible(true);
-        expframe.Paciente(mostrar);
+        
+
     }//GEN-LAST:event_MostrarEBtnActionPerformed
-private Paciente updatePaciente() {
+
+    private void ActivoComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActivoComboActionPerformed
+       
+    }//GEN-LAST:event_ActivoComboActionPerformed
+    
+
+    
+    private Paciente updatePaciente() {
        Paciente update= new Paciente();
        
        int Fila=ExpedienteTable.getSelectedRow();
@@ -242,6 +258,8 @@ private Paciente updatePaciente() {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
+
+
 
     
     

@@ -7,6 +7,7 @@ package Negocios;
 
 import Datos.DataMedico;
 import Encapsulamiento.Medico;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -66,6 +67,13 @@ public class MedicoController {
         if (res>0) {
             JOptionPane.showMessageDialog(null, "Datos Actualizados Correctamente");
         }
+    }
+
+    public ArrayList ListarMedicos() {
+        ArrayList listaMedicos;
+        DataMedico medicos=new DataMedico();
+        listaMedicos=medicos.ListMedico();
+        return listaMedicos;
     }
     
 }
