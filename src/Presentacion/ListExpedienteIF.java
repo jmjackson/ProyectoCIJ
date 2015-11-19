@@ -111,6 +111,11 @@ public class ListExpedienteIF extends javax.swing.JInternalFrame {
         getContentPane().add(ActivoLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(395, 118, -1, -1));
 
         MostrarEBtn.setText("Mostrar Expediente");
+        MostrarEBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MostrarEBtnActionPerformed(evt);
+            }
+        });
         getContentPane().add(MostrarEBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 150, -1, -1));
 
         EditarBtn.setText("Editar");
@@ -188,6 +193,16 @@ public class ListExpedienteIF extends javax.swing.JInternalFrame {
         PacienteController updateEx=new PacienteController();
         updateEx.Actualizar(update);
     }//GEN-LAST:event_ActualizarBtnActionPerformed
+
+    private void MostrarEBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MostrarEBtnActionPerformed
+        Paciente mostrar;
+        mostrar=updatePaciente();
+        
+        ExpedienteShowIf expframe=new ExpedienteShowIf();
+        AdminUser.desktopPane.add(expframe);
+        expframe.setVisible(true);
+        expframe.Paciente(mostrar);
+    }//GEN-LAST:event_MostrarEBtnActionPerformed
 private Paciente updatePaciente() {
        Paciente update= new Paciente();
        
