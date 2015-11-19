@@ -5,7 +5,7 @@
  */
 package Datos;
 
-import Encapsulamiento.Medico;
+
 import Encapsulamiento.Paciente;
 import java.sql.CallableStatement;
 import java.sql.Connection;
@@ -86,6 +86,24 @@ public class DataPaciente {
         }
        return listapaciente;
                
+    }
+
+    public int ActualizarP(Paciente update) {
+       int result=0;
+        try {
+            Connection conx=conn.dbConnect();
+            CallableStatement cs=conx.prepareCall("{call CIJDATABASE.UpdatePacientes(?,?,?,?,?,?)}");
+            cs.setString(1, Integer.toString(update.getExpediente()));
+            cs.setString(2, update.getNombre());
+            cs.setString(3, update.getApellido());
+            cs.setString(4, update.getDireccion());
+            cs.setString(5, update.getFechaEntrada());
+            cs.setString(6, update.getActivo());
+            result=cs.executeUpdate();
+        } catch (Exception e) {
+        }
+       
+       return result;
     }
 
     

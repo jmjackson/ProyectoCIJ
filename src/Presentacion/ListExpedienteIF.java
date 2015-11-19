@@ -5,7 +5,17 @@
  */
 package Presentacion;
 
+import Encapsulamiento.Paciente;
+import Negocios.ExpedienteController;
 import Negocios.PacienteController;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /**
  *
@@ -48,7 +58,7 @@ public class ListExpedienteIF extends javax.swing.JInternalFrame {
         MostrarEBtn = new javax.swing.JButton();
         EditarBtn = new javax.swing.JButton();
         ActualizarBtn = new javax.swing.JButton();
-        FechaCombo = new datechooser.beans.DateChooserCombo();
+        FechaIngreso = new javax.swing.JTextField();
         ActivoCombo = new javax.swing.JComboBox();
         jLabel1 = new javax.swing.JLabel();
 
@@ -59,6 +69,9 @@ public class ListExpedienteIF extends javax.swing.JInternalFrame {
 
         TituloLbl.setText("Control de Expediente");
         getContentPane().add(TituloLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(315, 12, -1, -1));
+
+        ExpedienteTxt.setEditable(false);
+        ExpedienteTxt.setEnabled(false);
         getContentPane().add(ExpedienteTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(123, 47, 190, -1));
         getContentPane().add(NombreTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(123, 86, 190, -1));
         getContentPane().add(ApellidoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(123, 119, 190, -1));
@@ -109,8 +122,16 @@ public class ListExpedienteIF extends javax.swing.JInternalFrame {
         getContentPane().add(EditarBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 150, 90, -1));
 
         ActualizarBtn.setText("Actualizar");
+        ActualizarBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ActualizarBtnActionPerformed(evt);
+            }
+        });
         getContentPane().add(ActualizarBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 150, 120, -1));
-        getContentPane().add(FechaCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(469, 80, 190, -1));
+
+        FechaIngreso.setEditable(false);
+        FechaIngreso.setEnabled(false);
+        getContentPane().add(FechaIngreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 80, 190, -1));
 
         ActivoCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-- Seleccionar --", "Activo", "No Activo" }));
         getContentPane().add(ActivoCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(469, 113, 190, -1));
@@ -123,20 +144,67 @@ public class ListExpedienteIF extends javax.swing.JInternalFrame {
 
     private void EditarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarBtnActionPerformed
         
-        int Fila=ExpedienteTable.getSelectedRow();
         
-        if (Fila>=0) {
-            ExpedienteTxt.setText(String.valueOf(ExpedienteTable.getValueAt(Fila, 1)));
-            NombreTxt.setText(String.valueOf(ExpedienteTable.getValueAt(Fila, 2)));
-            ApellidoTxt.setText(String.valueOf(ExpedienteTable.getValueAt(Fila, 3)));
-            DireccionTxt.setText(String.valueOf(ExpedienteTable.getValueAt(Fila, 4)));
-            FechaCombo.setText(String.valueOf(ExpedienteTable.getValueAt(Fila, 5)));
-            ActivoCombo.setSelectedItem(String.valueOf(ExpedienteTable.getValueAt(Fila, 6)));
+        Paciente paciente=updatePaciente();
+         ExpedienteTxt.setText(Integer.toString(paciente.getExpediente()));
+         NombreTxt.setText(paciente.getNombre());
+         ApellidoTxt.setText(paciente.getApellido());
+         DireccionTxt.setText(paciente.getDireccion());
+         FechaIngreso.setText(paciente.getFechaEntrada());
+         ActivoCombo.setSelectedItem(paciente.getActivo());
+         
+         
             
-        }
+        
         
     }//GEN-LAST:event_EditarBtnActionPerformed
 
+    private void ActualizarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActualizarBtnActionPerformed
+       Paciente Upaciente;
+       Upaciente=updatePaciente();
+       
+        JTextField[] campos= new JTextField[3];
+        campos[0]=NombreTxt;
+        campos[1]=ApellidoTxt;
+        campos[2]=DireccionTxt;
+        
+        
+        for (JTextField campo : campos) {
+            if (campo.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Algunos campos estan vacios");
+            return;    
+            }
+        }
+        
+       Paciente update=new Paciente();
+       update.setId(Upaciente.getId());
+       update.setExpediente(Upaciente.getExpediente());
+       update.setNombre(NombreTxt.getText());
+       update.setApellido(ApellidoTxt.getText());
+       update.setDireccion(DireccionTxt.getText());
+       update.setFechaEntrada(Upaciente.getFechaEntrada());
+       update.setActivo(ActivoCombo.getSelectedItem().toString());
+       
+        PacienteController updateEx=new PacienteController();
+        updateEx.Actualizar(update);
+    }//GEN-LAST:event_ActualizarBtnActionPerformed
+private Paciente updatePaciente() {
+       Paciente update= new Paciente();
+       
+       int Fila=ExpedienteTable.getSelectedRow();
+           if (Fila>=0) {
+               
+            update.setId(Integer.parseInt(String.valueOf(ExpedienteTable.getValueAt(Fila, 0))));
+            update.setExpediente(Integer.parseInt(String.valueOf(ExpedienteTable.getValueAt(Fila, 1))));
+            update.setNombre(String.valueOf(ExpedienteTable.getValueAt(Fila, 2)));
+            update.setApellido(String.valueOf(ExpedienteTable.getValueAt(Fila, 3)));
+            update.setDireccion(String.valueOf(ExpedienteTable.getValueAt(Fila, 4)));
+            update.setFechaEntrada(String.valueOf(ExpedienteTable.getValueAt(Fila, 5)));
+            update.setActivo(String.valueOf(ExpedienteTable.getValueAt(Fila, 6)));
+       
+       
+    }return update;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox ActivoCombo;
@@ -151,7 +219,7 @@ public class ListExpedienteIF extends javax.swing.JInternalFrame {
     private javax.swing.JTable ExpedienteTable;
     private javax.swing.JTextField ExpedienteTxt;
     private javax.swing.JLabel FcechaLbl;
-    private datechooser.beans.DateChooserCombo FechaCombo;
+    private javax.swing.JTextField FechaIngreso;
     private javax.swing.JButton MostrarEBtn;
     private javax.swing.JLabel NombreLbl;
     private javax.swing.JTextField NombreTxt;
@@ -159,4 +227,8 @@ public class ListExpedienteIF extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
-}
+
+    
+    
+
+    }

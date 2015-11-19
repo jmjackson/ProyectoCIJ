@@ -5,10 +5,13 @@
  */
 package Negocios;
 
+
+
 /**
  *
  * @author jmcito
  */
 public class ExpedienteController {
-    
+
+   
 }

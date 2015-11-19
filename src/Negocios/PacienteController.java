@@ -6,7 +6,6 @@
 package Negocios;
 
 import Datos.DataPaciente;
-import Encapsulamiento.Medico;
 import Encapsulamiento.Paciente;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -55,6 +54,17 @@ public class PacienteController {
             dft.addRow(campos);
                    
         }
+    }
+
+    public void Actualizar(Paciente update) {
+            
+        int Result;
+        DataPaciente Upaciente=new DataPaciente();
+        Result=Upaciente.ActualizarP(update);
+        if (Result>0) {
+            JOptionPane.showMessageDialog(null, "Sus datos se han actualizados correctamente");
+        }
+
     }
 
     

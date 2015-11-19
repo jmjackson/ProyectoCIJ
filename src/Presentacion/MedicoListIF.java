@@ -7,7 +7,6 @@ package Presentacion;
 
 import Encapsulamiento.Medico;
 import Negocios.MedicoController;
-import Negocios.PacienteController;
 import javax.swing.JOptionPane;
 
 
