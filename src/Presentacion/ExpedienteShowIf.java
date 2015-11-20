@@ -5,10 +5,11 @@
  */
 package Presentacion;
 
-import Encapsulamiento.Medico;
+
 import Encapsulamiento.Paciente;
+import Negocios.ExpedienteController;
 import Negocios.MedicoController;
-import java.util.ArrayList;
+
 
 /**
  *
@@ -19,8 +20,10 @@ public class ExpedienteShowIf extends javax.swing.JInternalFrame {
     /**
      * Creates new form ExpedienteShowIf
      */
+    
     public ExpedienteShowIf() {
         initComponents();
+      
         Obtenermedicos();
     }
 
@@ -120,11 +123,6 @@ public class ExpedienteShowIf extends javax.swing.JInternalFrame {
         getContentPane().add(ComboFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(459, 189, 234, -1));
 
         comboMedico.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        comboMedico.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboMedicoActionPerformed(evt);
-            }
-        });
         getContentPane().add(comboMedico, new org.netbeans.lib.awtextra.AbsoluteConstraints(459, 235, 234, -1));
 
         acceptBtn.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
@@ -153,7 +151,7 @@ public class ExpedienteShowIf extends javax.swing.JInternalFrame {
         ));
         jScrollPane2.setViewportView(ExpedienteTable);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 269, 715, 216));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 269, 715, 170));
 
         fondolbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/fondo.jpg"))); // NOI18N
         getContentPane().add(fondolbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 750, 500));
@@ -164,16 +162,11 @@ public class ExpedienteShowIf extends javax.swing.JInternalFrame {
     private void cancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBtnActionPerformed
         this.setVisible(false);
     }//GEN-LAST:event_cancelBtnActionPerformed
-
-    private void comboMedicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboMedicoActionPerformed
-        Obtenermedicos();
-    }//GEN-LAST:event_comboMedicoActionPerformed
    private void Obtenermedicos() {
       
-           
-                
-       
-            
+           MedicoController listam=new MedicoController();
+           listam.ListarMedicos(comboMedico);
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -206,5 +199,8 @@ public class ExpedienteShowIf extends javax.swing.JInternalFrame {
        resNombre.setText(mostrar.getNombre());
        resApellido.setText(mostrar.getApellido());
        ResActivo.setText(mostrar.getActivo());
+       
+       ExpedienteController expedienten=new ExpedienteController();
+       expedienten.MostrarEx(ExpedienteTable,mostrar);
     }
 }

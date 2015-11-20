@@ -258,14 +258,15 @@ public class AdminUser extends javax.swing.JFrame {
     }//GEN-LAST:event_MedbtnActionPerformed
 
     private void PerfilBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PerfilBtnActionPerformed
-        PerfilIF perfiles=new PerfilIF();
-        
+        UserPerfil perfiles=new UserPerfil();
         desktopPane.add(perfiles);
         perfiles.setVisible(true);
     }//GEN-LAST:event_PerfilBtnActionPerformed
 
     public void UsuarioPrincipal(Usuario intro) {
         bienvenidoLbl.setText("Bienvenido "+ intro.getNombre());
+        UserPerfil usuario=new UserPerfil();
+        usuario.Info(intro);
         
     }
     

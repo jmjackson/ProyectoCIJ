@@ -5,6 +5,10 @@
  */
 package Negocios;
 
+import Datos.DataExpediente;
+import Encapsulamiento.Paciente;
+import javax.swing.JTable;
+
 
 
 /**
@@ -12,6 +16,12 @@ package Negocios;
  * @author jmcito
  */
 public class ExpedienteController {
+
+    public void MostrarEx(JTable ExpedienteTable, Paciente paciente) {
+        
+        DataExpediente mExpediente=new DataExpediente();
+        mExpediente.mostrarExp(paciente);
+    }
 
    
 }
