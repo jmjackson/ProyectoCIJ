@@ -5,7 +5,9 @@
  */
 package Presentacion;
 
+
 import Encapsulamiento.Usuario;
+import Negocios.UserController;
 
 
 /**
@@ -259,15 +261,18 @@ public class AdminUser extends javax.swing.JFrame {
 
     private void PerfilBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PerfilBtnActionPerformed
         UserPerfil perfiles=new UserPerfil();
+        Usuario perfil=new Usuario();
         desktopPane.add(perfiles);
         perfiles.setVisible(true);
+        UserController user=new UserController();
+        user.MostrarUsuario(bienvenidoLbl.getText());
+     
     }//GEN-LAST:event_PerfilBtnActionPerformed
 
     public void UsuarioPrincipal(Usuario intro) {
-        bienvenidoLbl.setText("Bienvenido "+ intro.getNombre());
-        UserPerfil usuario=new UserPerfil();
-        usuario.Info(intro);
+        bienvenidoLbl.setText(""+ intro.getUsuario());
         
+      
     }
     
     private void AddMedicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddMedicoActionPerformed
@@ -304,10 +309,8 @@ public class AdminUser extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new AdminUser().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new AdminUser().setVisible(true);
         });
     }
 
@@ -343,8 +346,4 @@ public class AdminUser extends javax.swing.JFrame {
     private javax.swing.JMenuItem saveMenuItem;
     private javax.swing.JLabel titleLbl;
     // End of variables declaration//GEN-END:variables
-
-    
-
-
 }

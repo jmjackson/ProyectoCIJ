@@ -6,6 +6,12 @@
 package Presentacion;
 
 import Encapsulamiento.Usuario;
+import Negocios.UserController;
+import javax.swing.JOptionPane;
+
+
+
+
 
 /**
  *
@@ -18,8 +24,11 @@ public class UserPerfil extends javax.swing.JInternalFrame {
      */
     public UserPerfil() {
         initComponents();
-        
-    }
+       
+  }
+
+
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -151,9 +160,17 @@ public class UserPerfil extends javax.swing.JInternalFrame {
     private javax.swing.JLabel usarioLbl;
     // End of variables declaration//GEN-END:variables
 
-    public void Info(Usuario intro) {
-        none1Lbl.setText(intro.getNombre());
-        none2Lbl.setText(intro.getEmail());
-        none2Lbl.setText(intro.getUsuario());
+    public void Mostrar(Usuario perfil) {
+       nombreTxt.setText(perfil.getNombre());
     }
+
+
+
+    
+
+
+    
+    
+
+    
     }

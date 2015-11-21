@@ -8,6 +8,9 @@ package Negocios;
 import Datos.DataUser;
 import Encapsulamiento.Usuario;
 import Presentacion.AdminUser;
+import Presentacion.UserPerfil;
+
+
 import javax.swing.JOptionPane;
 
 /**
@@ -26,6 +29,8 @@ public class UserController {
             AdminUser adminpanel=new AdminUser();
             adminpanel.setVisible(true);
             adminpanel.UsuarioPrincipal(intro);
+            
+
         }
         
     }
@@ -44,5 +49,17 @@ public class UserController {
         }
         
     }
+
+    public  void MostrarUsuario(String text) {
+        Usuario perfil;
+        DataUser usuario=new DataUser();
+        perfil=usuario.usuario(text);
+        UserPerfil perfiles=new UserPerfil();
+        perfiles.Mostrar(perfil);
+        
+    }
+
+
+    
     
 }

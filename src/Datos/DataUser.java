@@ -6,7 +6,7 @@
 package Datos;
 
 import Encapsulamiento.Usuario;
-import Presentacion.LoginUserForm;
+
 import java.awt.HeadlessException;
 import java.sql.*;
 import javax.swing.JOptionPane;
@@ -70,4 +70,23 @@ public class DataUser {
         return result;
     }
     
+    public Usuario usuario(String user){
+        Usuario consulta=null;
+        try {
+            Connection conex=conn.dbConnect();
+            Statement st=conex.createStatement();
+            ResultSet rs=st.executeQuery("select Id, Nombre, Email,NUsuario,Password from CIJDATABASE.Usuarios where NUsuario = '"+user+"'");
+            while (rs.next()) {                
+                consulta=new Usuario();
+                consulta.setId(Integer.parseInt(rs.getString(1)));
+                consulta.setNombre(rs.getString(2));
+                consulta.setEmail(rs.getString(3));
+                consulta.setUsuario(rs.getString(4));
+                consulta.setPassword(rs.getString(5));
+            }
+        } catch (SQLException | NumberFormatException e) {
+        }
+        
+        return consulta;
+    }
 }
