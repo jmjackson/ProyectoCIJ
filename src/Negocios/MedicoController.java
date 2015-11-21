@@ -7,7 +7,7 @@ package Negocios;
 
 import Datos.DataMedico;
 import Encapsulamiento.Medico;
-import java.util.ArrayList;
+
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -77,6 +77,7 @@ public class MedicoController {
         int registro=lista.ListMedico().size();
         comboMedico.removeAllItems();
         for (int i = 0; i < registro; i++) {
+            
             comboMedico.addItem(lista.ListMedico().get(i).getNombre());
         }
     }

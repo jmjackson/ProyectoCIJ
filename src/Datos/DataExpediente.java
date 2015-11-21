@@ -47,9 +47,7 @@ public class DataExpediente {
                 expediente.setTitulo(rs.getString(2));
                 expediente.setDescripcion(rs.getString(3));
                 expediente.setFecha(rs.getString(4));
-                pacientes.setNombre(rs.getString(5));
-                pacientes.setApellido(rs.getString(6));
-                medico.setNombre(rs.getString(7));
+             
                 
                 
             }

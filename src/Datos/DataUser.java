@@ -89,4 +89,20 @@ public class DataUser {
         
         return consulta;
     }
+
+    public int EditUser(Usuario update) {
+        int result=0;
+        try {
+            Connection conex=conn.dbConnect();
+            CallableStatement cs=conex.prepareCall("{call CIJDATABASE.UpdateUsuario(?,?,?,?)}");
+            cs.setString(1, update.getNombre());
+            cs.setString(2, update.getEmail());
+            cs.setString(3, update.getUsuario());
+            cs.setString(4, update.getPassword());
+            result=cs.executeUpdate();
+        } catch (Exception e) {
+        }
+        
+        return result;
+    }
 }

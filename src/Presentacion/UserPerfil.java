@@ -8,6 +8,8 @@ package Presentacion;
 import Encapsulamiento.Usuario;
 import Negocios.UserController;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+
 
 
 
@@ -24,8 +26,11 @@ public class UserPerfil extends javax.swing.JInternalFrame {
      */
     public UserPerfil() {
         initComponents();
-       
+
+
   }
+
+ 
 
 
 
@@ -125,9 +130,19 @@ public class UserPerfil extends javax.swing.JInternalFrame {
         getContentPane().add(passwordTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(402, 129, 228, -1));
 
         btnActualizar.setText("Actualizar");
+        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(445, 183, -1, -1));
 
         btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(556, 183, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/fondo.jpg"))); // NOI18N
@@ -135,7 +150,65 @@ public class UserPerfil extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    public void Mostrar(String perfil) {
 
+        UserController userp=new UserController();
+        Usuario Uperfil=userp.MostrarUsuario(perfil);
+        none1Lbl.setText(Uperfil.getNombre());
+        none2Lbl.setText(Uperfil.getEmail());
+        none3Lbl.setText(Uperfil.getUsuario());
+        
+        
+    }
+    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
+        UserController userp=new UserController();
+        Usuario Userc=userp.MostrarUsuario(none3Lbl.getText());
+        int Id=Userc.getId();
+        String user=Userc.getUsuario();
+        JTextField [] campos=new JTextField[3];
+        campos[0]=nombreTxt;
+        campos[1]=emailTxt;
+        campos[2]=passwordTxt;
+        for (JTextField campo : campos) {
+            if (campo.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Uno o más campos estan vacios");
+                return;
+            }
+        }
+        
+        Usuario update=new Usuario();
+        update.setId(Id);
+        update.setNombre(nombreTxt.getText());
+        update.setEmail(emailTxt.getText());
+        update.setUsuario(user);
+        update.setPassword(passwordTxt.getText());
+        
+                
+          UserController updateUser=new UserController();
+          updateUser.EditarUser(update);
+          this.setVisible(false);
+        
+    }//GEN-LAST:event_btnActualizarActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        JTextField[] campos=new JTextField[3];
+        campos[0]=nombreTxt;
+        campos[1]=emailTxt;
+        campos[2]=passwordTxt;
+        for (JTextField campo : campos) {
+            campo.setText(null);
+        }
+        
+        int dialogresult=JOptionPane.showConfirmDialog(null, "¿Desea cancelar?","Aviso",JOptionPane.YES_NO_OPTION);
+        if (dialogresult==0) {
+            this.setVisible(false);
+        }
+        
+        
+    }//GEN-LAST:event_btnCancelarActionPerformed
+
+ 
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActualizar;
@@ -147,7 +220,7 @@ public class UserPerfil extends javax.swing.JInternalFrame {
     private javax.swing.JLabel emaildLbl;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel nombreLbl;
-    private javax.swing.JTextField nombreTxt;
+    public static javax.swing.JTextField nombreTxt;
     private javax.swing.JLabel nombredLbl;
     private javax.swing.JLabel none1Lbl;
     private javax.swing.JLabel none2Lbl;
@@ -159,18 +232,6 @@ public class UserPerfil extends javax.swing.JInternalFrame {
     private javax.swing.JLabel tituloLbl;
     private javax.swing.JLabel usarioLbl;
     // End of variables declaration//GEN-END:variables
-
-    public void Mostrar(Usuario perfil) {
-       nombreTxt.setText(perfil.getNombre());
-    }
-
-
-
-    
-
-
-    
-    
 
     
     }

@@ -261,12 +261,10 @@ public class AdminUser extends javax.swing.JFrame {
 
     private void PerfilBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PerfilBtnActionPerformed
         UserPerfil perfiles=new UserPerfil();
-        Usuario perfil=new Usuario();
         desktopPane.add(perfiles);
         perfiles.setVisible(true);
-        UserController user=new UserController();
-        user.MostrarUsuario(bienvenidoLbl.getText());
-     
+        perfiles.Mostrar(bienvenidoLbl.getText());
+        
     }//GEN-LAST:event_PerfilBtnActionPerformed
 
     public void UsuarioPrincipal(Usuario intro) {

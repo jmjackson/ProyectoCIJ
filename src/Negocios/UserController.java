@@ -50,13 +50,21 @@ public class UserController {
         
     }
 
-    public  void MostrarUsuario(String text) {
+    public  Usuario MostrarUsuario(String text) {
         Usuario perfil;
         DataUser usuario=new DataUser();
         perfil=usuario.usuario(text);
-        UserPerfil perfiles=new UserPerfil();
-        perfiles.Mostrar(perfil);
         
+        return perfil;
+    }
+
+    public void EditarUser(Usuario update) {
+        DataUser updateDataUser=new DataUser();
+        int res;
+        res = updateDataUser.EditUser(update);
+        if (res>0) {
+            JOptionPane.showMessageDialog(null, "Sus datos se han actualizado correctamente");
+        }
     }
 
 

@@ -203,4 +203,6 @@ public class ExpedienteShowIf extends javax.swing.JInternalFrame {
        ExpedienteController expedienten=new ExpedienteController();
        expedienten.MostrarEx(ExpedienteTable,mostrar);
     }
+    
+    
 }
