@@ -203,7 +203,7 @@ public class ListExpedienteIF extends javax.swing.JInternalFrame {
            ExpedienteShowIf expframe=new ExpedienteShowIf();
           AdminUser.desktopPane.add(expframe);
           expframe.setVisible(true);
-          expframe.Paciente(mostrar); 
+          expframe.PacienteDatos(mostrar); 
         }
         else{
             JOptionPane.showMessageDialog(null, "Elija un Paciente");

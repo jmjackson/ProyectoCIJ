@@ -7,12 +7,14 @@ package Presentacion;
 
 
 
+import Encapsulamiento.Consulta;
 import Encapsulamiento.Medico;
 import Encapsulamiento.Paciente;
 import Negocios.ExpedienteController;
 import Negocios.MedicoController;
 import Negocios.PacienteController;
 import java.util.ArrayList;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 
 
@@ -137,6 +139,11 @@ public class ExpedienteShowIf extends javax.swing.JInternalFrame {
 
         acceptBtn.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
         acceptBtn.setText("Ingresar Consulta");
+        acceptBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                acceptBtnActionPerformed(evt);
+            }
+        });
         getContentPane().add(acceptBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 230, -1, -1));
 
         cancelBtn.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
@@ -187,6 +194,33 @@ public class ExpedienteShowIf extends javax.swing.JInternalFrame {
         }
         
     }//GEN-LAST:event_cancelBtnActionPerformed
+
+    private void acceptBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acceptBtnActionPerformed
+        Consulta consulta=new Consulta();
+        consulta.setTitulo(consultaTxt.getText());
+        consulta.setDescripcion(DescripcionTxt.getText());
+        consulta.setFecha(ComboFecha.getText());
+        String medicoId=comboMedico.getSelectedItem().toString();
+        String[]medicoGI;
+        medicoGI = medicoId.split(Pattern.quote("."));
+        String Id=medicoGI[0];
+        String Nombre=medicoGI[1];
+        Medico medco=new Medico();
+        medco.setId(Integer.parseInt(Id));
+        medco.setNombre(Nombre);
+        Paciente paciente;
+        PacienteController pControl;
+        pControl = new PacienteController();
+        paciente=pControl.mostrarPaciente(Integer.parseInt(resExpediente.getText()));
+        String activo = paciente.getActivo();
+        consulta.setNombre(paciente);
+        consulta.setMnombre(medco);
+        
+        ExpedienteController nuevoExp=new ExpedienteController();
+        nuevoExp.AddExp(consulta);
+
+        
+    }//GEN-LAST:event_acceptBtnActionPerformed
      //Mostrar Medico en el combobox
     private void Obtenermedicos() {
             ArrayList listaMedico;
@@ -202,7 +236,7 @@ public class ExpedienteShowIf extends javax.swing.JInternalFrame {
 
      }           
     //llamar paciente para los datos del paciente
-    void Paciente(int mostrar) {
+    void PacienteDatos(int mostrar) {
         PacienteController mostrarP=new PacienteController();
         Paciente paciente;
         paciente=mostrarP.mostrarPaciente(mostrar);

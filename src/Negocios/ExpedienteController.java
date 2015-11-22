@@ -7,7 +7,7 @@ package Negocios;
 
 import Datos.DataExpediente;
 import Encapsulamiento.Consulta;
-import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -40,7 +40,8 @@ public class ExpedienteController {
  
         int Lista = mExpediente.mostrarExp(expediente).size();
         for (int i = 0; i < Lista; i++) {
-            campo[0]=mExpediente.mostrarExp(expediente).get(i).getNombre().getNombre();
+            campo[0]=mExpediente.mostrarExp(expediente).get(i).getNombre().getNombre()+" "+
+                    mExpediente.mostrarExp(expediente).get(i).getNombre().getApellido();
             campo[1]=mExpediente.mostrarExp(expediente).get(i).getTitulo();
             campo[2]=mExpediente.mostrarExp(expediente).get(i).getDescripcion();
             campo[3]=mExpediente.mostrarExp(expediente).get(i).getFecha();
@@ -48,6 +49,15 @@ public class ExpedienteController {
             dft.addRow(campo);
         }
         
+    }
+
+    public void AddExp(Consulta consulta) {
+        DataExpediente newExp=new DataExpediente();
+        int Result=newExp.AddExpediente(consulta);
+        
+        if (Result>0) {
+            JOptionPane.showMessageDialog(null, "Consulta Agregada Correctamente");
+        }
     }
 
    

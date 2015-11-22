@@ -12,7 +12,11 @@ import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  *
@@ -75,6 +79,28 @@ public class DataExpediente {
         
         
         return listExp;
+    }
+
+    public int AddExpediente(Consulta consulta) {
+        int Result=0;
+        DateFormat first=new SimpleDateFormat("MM/dd/yy");
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        
+        try {
+            Date fecha=first.parse(consulta.getFecha());
+            String date=formatter.format(fecha);
+            Connection conex=conn.dbConnect();
+            CallableStatement cs=conex.prepareCall("{call CIJDATABASE.add_Expediente(?,?,?,?,?)}");
+            cs.setString(1, consulta.getTitulo());
+            cs.setString(2, consulta.getDescripcion());
+            cs.setString(3, date);
+            cs.setString(4, Integer.toString(consulta.getNombre().getId()));
+            cs.setString(5, Integer.toString(consulta.getMnombre().getId()));
+            Result=cs.executeUpdate();
+        } catch (ParseException | SQLException e) {
+        }
+        
+        return Result;
     }
     
 }
