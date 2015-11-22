@@ -106,6 +106,29 @@ public class DataPaciente {
        return result;
     }
 
+    public Paciente MostrarP(int mostrar) {
+        Paciente paciente=null;
+        try {
+            Connection conx=conn.dbConnect();
+            CallableStatement cs=conx.prepareCall("{call CIJDATABASE.mostrarPaciente(?)}");
+            cs.setString(1, Integer.toString(mostrar));
+            ResultSet rs=cs.executeQuery();
+            if (rs.next()) {
+                paciente=new Paciente();
+                paciente.setId(Integer.parseInt(rs.getString(1)));
+                paciente.setExpediente(Integer.parseInt(rs.getString(2)));
+                paciente.setNombre(rs.getString(3));
+                paciente.setApellido(rs.getString(4));
+                paciente.setDireccion(rs.getString(5));
+                paciente.setFechaEntrada(rs.getString(6));
+                paciente.setActivo(rs.getString(7));
+            }
+            
+        } catch (SQLException | NumberFormatException e) {
+        }
+        return paciente;
+    }
+
     
     
 }

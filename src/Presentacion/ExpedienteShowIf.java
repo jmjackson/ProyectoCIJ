@@ -6,9 +6,15 @@
 package Presentacion;
 
 
+
+import Encapsulamiento.Medico;
 import Encapsulamiento.Paciente;
 import Negocios.ExpedienteController;
 import Negocios.MedicoController;
+import Negocios.PacienteController;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+
 
 
 /**
@@ -20,11 +26,13 @@ public class ExpedienteShowIf extends javax.swing.JInternalFrame {
     /**
      * Creates new form ExpedienteShowIf
      */
-    
+    ExpedienteController expediente=new ExpedienteController();
     public ExpedienteShowIf() {
         initComponents();
       
         Obtenermedicos();
+
+        
     }
 
     /**
@@ -57,6 +65,8 @@ public class ExpedienteShowIf extends javax.swing.JInternalFrame {
         cancelBtn = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         ExpedienteTable = new javax.swing.JTable();
+        fechaIngresoLbl = new javax.swing.JLabel();
+        ResFechaLbl = new javax.swing.JLabel();
         fondolbl = new javax.swing.JLabel();
 
         setClosable(true);
@@ -153,6 +163,15 @@ public class ExpedienteShowIf extends javax.swing.JInternalFrame {
 
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 269, 715, 170));
 
+        fechaIngresoLbl.setForeground(new java.awt.Color(254, 254, 254));
+        fechaIngresoLbl.setText("Fecha Ingreso:");
+        getContentPane().add(fechaIngresoLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, -1, -1));
+
+        ResFechaLbl.setFont(new java.awt.Font("Ubuntu", 2, 15)); // NOI18N
+        ResFechaLbl.setForeground(new java.awt.Color(254, 254, 254));
+        ResFechaLbl.setText("none");
+        getContentPane().add(ResFechaLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, -1, -1));
+
         fondolbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/fondo.jpg"))); // NOI18N
         getContentPane().add(fondolbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 750, 500));
 
@@ -160,21 +179,52 @@ public class ExpedienteShowIf extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBtnActionPerformed
-        this.setVisible(false);
-    }//GEN-LAST:event_cancelBtnActionPerformed
-   private void Obtenermedicos() {
-      
-           MedicoController listam=new MedicoController();
-           listam.ListarMedicos(comboMedico);
+        consultaTxt.setText(null);
+        DescripcionTxt.setText(null);
+        int dialogresult=JOptionPane.showConfirmDialog(null, "¿Desea cancelar?","Aviso",JOptionPane.YES_NO_OPTION);
+        if (dialogresult==0) {
+            this.setVisible(false);
+        }
         
-    }
+    }//GEN-LAST:event_cancelBtnActionPerformed
+     //Mostrar Medico en el combobox
+    private void Obtenermedicos() {
+            ArrayList listaMedico;
+           MedicoController MedicoControl=new MedicoController();
+           listaMedico=MedicoControl.ObtenerM();
+           Medico medico=new Medico();
+           int registros=listaMedico.size();
+           comboMedico.removeAllItems();
+           for (int i = 0; i < registros; i++) {
+             comboMedico.addItem(MedicoControl.ObtenerM().get(i).getId()+"."+MedicoControl
+             .ObtenerM().get(i).getNombre());
+         }
 
+     }           
+    //llamar paciente para los datos del paciente
+    void Paciente(int mostrar) {
+        PacienteController mostrarP=new PacienteController();
+        Paciente paciente;
+        paciente=mostrarP.mostrarPaciente(mostrar);
+        
+      resExpediente.setText(Integer.toString(paciente.getExpediente()));
+      resNombre.setText(paciente.getNombre());
+      resApellido.setText(paciente.getApellido());
+      ResActivo.setText(paciente.getActivo());
+      ResFechaLbl.setText(paciente.getFechaEntrada());
+       
+      ExpedienteController expmostrar=new ExpedienteController();
+      expmostrar.MostrarEx(ExpedienteTable, mostrar);
+    }
+   
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private datechooser.beans.DateChooserCombo ComboFecha;
     private javax.swing.JLabel Consultatitlelbl;
     private javax.swing.JTextArea DescripcionTxt;
     private javax.swing.JTable ExpedienteTable;
     private javax.swing.JLabel ResActivo;
+    private javax.swing.JLabel ResFechaLbl;
     private javax.swing.JButton acceptBtn;
     private javax.swing.JLabel activoLbl;
     private javax.swing.JLabel apellidoLbl;
@@ -183,6 +233,7 @@ public class ExpedienteShowIf extends javax.swing.JInternalFrame {
     private javax.swing.JTextField consultaTxt;
     private javax.swing.JLabel descripcionLbl;
     private javax.swing.JLabel expedienteLbl;
+    private javax.swing.JLabel fechaIngresoLbl;
     private javax.swing.JLabel fechaLbl;
     private javax.swing.JLabel fondolbl;
     private javax.swing.JScrollPane jScrollPane1;
@@ -194,15 +245,7 @@ public class ExpedienteShowIf extends javax.swing.JInternalFrame {
     private javax.swing.JLabel resNombre;
     // End of variables declaration//GEN-END:variables
 
-    void Paciente(Paciente mostrar) {
-       resExpediente.setText(Integer.toString(mostrar.getExpediente()));
-       resNombre.setText(mostrar.getNombre());
-       resApellido.setText(mostrar.getApellido());
-       ResActivo.setText(mostrar.getActivo());
-       
-       ExpedienteController expedienten=new ExpedienteController();
-       expedienten.MostrarEx(ExpedienteTable,mostrar);
-    }
+
     
     
 }

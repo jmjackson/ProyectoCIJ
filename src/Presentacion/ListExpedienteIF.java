@@ -196,14 +196,14 @@ public class ListExpedienteIF extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_ActualizarBtnActionPerformed
 
     private void MostrarEBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MostrarEBtnActionPerformed
-        Paciente mostrar;
+        int mostrar;
         int fila=ExpedienteTable.getSelectedRow();
         if (fila>=0) {
-           mostrar=updatePaciente();        
+           mostrar=updatePaciente().getExpediente();        
            ExpedienteShowIf expframe=new ExpedienteShowIf();
           AdminUser.desktopPane.add(expframe);
           expframe.setVisible(true);
-         expframe.Paciente(mostrar); 
+          expframe.Paciente(mostrar); 
         }
         else{
             JOptionPane.showMessageDialog(null, "Elija un Paciente");
@@ -234,7 +234,8 @@ public class ListExpedienteIF extends javax.swing.JInternalFrame {
             update.setActivo(String.valueOf(ExpedienteTable.getValueAt(Fila, 6)));
        
        
-    }return update;
+    }
+           return update;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

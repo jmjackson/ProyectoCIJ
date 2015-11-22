@@ -67,6 +67,14 @@ public class PacienteController {
 
     }
 
+    public Paciente mostrarPaciente(int mostrar) {
+       Paciente nuevo;
+       DataPaciente obtenerPaciente= new DataPaciente();
+       nuevo=obtenerPaciente.MostrarP(mostrar);
+       
+       return nuevo;
+    }
+
     
     
 }
