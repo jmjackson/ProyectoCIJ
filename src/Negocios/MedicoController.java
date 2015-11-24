@@ -7,10 +7,7 @@ package Negocios;
 
 import Datos.DataMedico;
 import Encapsulamiento.Medico;
-import java.sql.Array;
 import java.util.ArrayList;
-
-import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;

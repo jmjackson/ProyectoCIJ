@@ -168,7 +168,7 @@ public class ExpedienteShowIf extends javax.swing.JInternalFrame {
         ));
         jScrollPane2.setViewportView(ExpedienteTable);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 269, 715, 170));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 269, 715, 140));
 
         fechaIngresoLbl.setForeground(new java.awt.Color(254, 254, 254));
         fechaIngresoLbl.setText("Fecha Ingreso:");
@@ -180,7 +180,7 @@ public class ExpedienteShowIf extends javax.swing.JInternalFrame {
         getContentPane().add(ResFechaLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, -1, -1));
 
         fondolbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/fondo.jpg"))); // NOI18N
-        getContentPane().add(fondolbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 750, 500));
+        getContentPane().add(fondolbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 750, 520));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
